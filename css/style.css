@@ -1,13 +1,16 @@
 ﻿body {
-    font-family: 'Segoe UI', Calibri, Arial;
+    font-family: 'Mountains of Christmas', cursive;
     margin:0;
+    background-color:#c2defc;
 }
 h2{
     font-weight:normal;
     text-align:center;
+    font-size: 200%;
 }
 h3{
     font-weight:normal;
     margin:3px 0px;
     text-align:center;
+    font-size: 200%;
 }

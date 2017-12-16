@@ -1,4 +1,5 @@
 ﻿var timerFunction;
+var completed = 0;
 
 var imagePuzzle = {
     stepCount: 0,
@@ -31,7 +32,7 @@ var imagePuzzle = {
                 $(this).replaceAll(ui.draggable);
 
                 currentList = $('#sortable > li').map(function (i, el) { return $(el).attr('data-value'); });
-                if (isSorted(currentList))
+                if (isSorted(currentList))                                      //When isSorted returns true, gets rid of the real image and displays the game over
                     $('#actualImageBox').empty().html($('#gameOver').html());
                 else {
                     var now = new Date().getTime();
@@ -76,8 +77,13 @@ function isSorted(arr) {
         if (arr[i] != i)
             return false;
     }
+    completed++;
+    sessionStorage.setItem("completed", completed);
+    compCheck();
+    console.log("Puzzles Completed: " + completed);
     return true;
 }
+
 $.fn.randomize = function (selector) {
     var $elems = selector ? $(this).find(selector) : $(this).children(),
         $parents = $elems.parent();
@@ -89,3 +95,14 @@ $.fn.randomize = function (selector) {
     });
     return this;
 };
+
+function compCheck()
+{
+    var totComp = sessionStorage.getItem("completed");
+    console.log("totComp:" + totComp);
+
+    // if(totComp == 4)
+    // {
+
+    // }
+}
